@@ -1,3 +1,6 @@
+from day2 import computer_number
+
+
 def make_sandwich(main, *ingredients):
     if not main:
         pass
@@ -47,38 +50,35 @@ import random
 wins = 0
 losses = 0
 def get_guess():
-    """ will give the computer a random guess number"""
     global computer_number
     computer_number = random.randint(1, 100)
     return computer_number
-
 def check_guess():
-
-        for i in range(7):
-            guess_num = int(input('what number would you like to guess: '))
-            if guess_num == computer_number:
-                print("Correct!!! You win!")
-                global wins
-                wins += 1
-                return
-            elif guess_num < computer_number:
-                print("Too low!")
-            else:
-                print("Too high!")
-
+    for i in range(7):
+        guess = int(input("guess a number between 1 and 100: "))
+        if guess == computer_number:
+            print("Correct!!! You win!")
+            global wins
+            wins += 1
+            break
+        elif guess < computer_number:
+            print("Too low!")
+        else:
+            print("Too high!")
+    else:
         global losses
         losses += 1
-        print("out of guesses you lose")
-        print(f"computer number: {computer_number}")
+        print("Sorry, you ran out of guesses. The number was " + str(computer_number))
+
+
 def start_game():
-    global computer_number
     get_guess()
     check_guess()
-    print(f'total wins: {wins} total losses: {losses}')
-    play_again = int(input("type 1 to play again or 0 to quit: "))
-    if play_again == 1:
+    print(f"total wins: {wins} total losses: {losses}")
+    play_again = input("Do you want to play again? (y/n): ")
+    if play_again == "y":
         start_game()
     else:
+        print("Thank you for playing!")
         return
-
 start_game()
