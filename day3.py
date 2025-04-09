@@ -104,3 +104,32 @@ def get_bill_details():
     bill = amount + tip
     print(f"tip is: ${tip} and total bill is: ${bill}")
 get_bill_details()
+
+# function project 3 - rock paper scissors game
+import random
+def get_computer_choice():
+    random_number = random.randint(1, 3)
+    if random_number == 1:
+        return "rock"
+    elif random_number == 2:
+        return "paper"
+    else:
+        return "scissors"
+def get_winner(player_choice, computer_choice):
+    if player_choice == computer_choice:
+        return "It's a tie!"
+    elif player_choice == "rock" and computer_choice == "scissors" or player_choice == "scissors" and computer_choice == "paper"\
+            or player_choice == "paper" and computer_choice == "rock":
+        return "You win!"
+    else:
+        return "Computer wins!"
+def play_game():
+    player_choice = input("rock, paper, or scissors? ").lower()
+    if player_choice not in ["rock", "paper", "scissors"]:
+        print("Invalid choice. Please enter rock, paper, or scissors.")
+        return
+    computer_choice = get_computer_choice()
+    winner = get_winner(player_choice, computer_choice)
+    print(f"You choose {player_choice} and computer choose {computer_choice}")
+    print(winner)
+play_game()
