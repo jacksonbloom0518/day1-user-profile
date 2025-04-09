@@ -1,6 +1,3 @@
-from day2 import computer_number
-
-
 def make_sandwich(main, *ingredients):
     if not main:
         pass
@@ -133,3 +130,35 @@ def play_game():
     print(f"You choose {player_choice} and computer choose {computer_choice}")
     print(winner)
 play_game()
+
+# func PROJECT 4 - GRADE CALCULATOR
+def calculate_average(grades):
+    return sum(grades) / len(grades)
+def get_highest_grade(grades):
+    return max(grades)
+def get_lowest_grade(grades):
+    return min(grades)
+def get_letter_grade(score):
+    if score >= 90:
+        return "A"
+    elif score >= 80:
+        return "B"
+    elif score >= 70:
+        return "C"
+    elif score >= 60:
+        return "D"
+    else:
+        return "F"
+
+def summarize_grades(grades):
+    average = calculate_average(grades)
+    maximum = get_highest_grade(grades)
+    minimum = get_lowest_grade(grades)
+    avg_letter_grade = get_letter_grade(average)
+    max_letter_grade = get_letter_grade(maximum)
+    min_letter_grade = get_letter_grade(minimum)
+    print(f"The average score is: {str(average)} ({avg_letter_grade})")
+    print(f"The maximum score is: {str(maximum)} ({max_letter_grade})")
+    print(f"The minimum score is: {str(minimum)} ({min_letter_grade})")
+grades = [92, 88, 74, 97, 62, 85]
+summarize_grades(grades)
