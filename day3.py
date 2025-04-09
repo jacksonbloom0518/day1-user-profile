@@ -82,3 +82,25 @@ def start_game():
         print("Thank you for playing!")
         return
 start_game()
+
+
+# project 2 tip calculator
+def calculate_tip(amount, rating):
+    if rating == "bad":
+        return amount * 0.10
+    elif rating == "okay":
+        return amount * 0.15
+    elif rating == "great":
+        return amount * 0.20
+    else:
+        print("Invalid rating")
+        return None
+def get_bill_details():
+    amount = float(input("Enter bill amount: "))
+    rating = input("Rate the service (bad, okay, great): ")
+    tip = calculate_tip(amount, rating)
+    if tip is None:
+        return
+    bill = amount + tip
+    print(f"tip is: ${tip} and total bill is: ${bill}")
+get_bill_details()
